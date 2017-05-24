@@ -25,4 +25,21 @@
   	<servlet-name>deleteOne</servlet-name>
   	<url-pattern>/delete.action</url-pattern>
   </servlet-mapping>
+  <servlet>
+  	<servlet-name>InitTalk</servlet-name>
+  	<servlet-class>com.mylzs.servlet.InitTalk</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>InitTalk</servlet-name>
+  	<url-pattern>/InitTalk.action</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>autoreply</servlet-name>
+  	<servlet-class>com.mylzs.servlet.AutoReply</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>autoreply</servlet-name>
+  	<url-pattern>/AutoReply.action</url-pattern>
+  </servlet-mapping>
 </web-app>
