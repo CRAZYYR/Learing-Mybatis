@@ -1,6 +1,6 @@
 package javabean;
 /**
- * 和消息对应的实体类
+ * 
  * @author Go With Me
  *
  */

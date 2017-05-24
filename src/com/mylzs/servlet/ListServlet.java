@@ -16,6 +16,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import service.ListService;
 /**
  * 列表
  * @author Go With Me
@@ -35,45 +37,17 @@ public class ListServlet extends HttpServlet{
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		try {
+			//设置编码
 			req.setCharacterEncoding("UTF-8");
+//			获取提交的数据
 			String command=req.getParameter("command");
 			String desc=req.getParameter("desc");
 			
-			System.out.println(desc);
-			Class.forName("com.mysql.jdbc.Driver");
-		Connection conn=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/micro_message","root","root");
-		String sql="select `id`,`command`,`desc`,`content` from message where 1=1";
-		List<String> palist=new ArrayList<String>();
-		if(command !=null && !"".equals(command.trim())){
-//			sql.append("and command = ? ");
-//			palist.add(command);
-			sql+="and command ="+command;
-		}
-		if(desc !=null && !"".equals(desc.trim())){
-//			sql.append("and desc like '%' ? '%'");
-//			palist.add(desc);
-			sql+="and desc like '%'"+desc+"'%'";
-		}
-	//	PreparedStatement statement= conn.prepareStatement(sql);
-//		for(int i=0;i<palist.size();i++){
-//			statement.setString(i+1, palist.get(i));
-//		}
-		Statement statement=conn.createStatement();
-		
-		ResultSet resultSet=statement.executeQuery(sql);
-		List<Message> messages = new ArrayList<Message>();
-		
-		while(resultSet.next()){
-			Message message=new Message();
-			message.setId(resultSet.getString("id"));
-			message.setCommand(resultSet.getString("command"));
-			message.setDesc(resultSet.getString("desc"));
-			message.setContent(resultSet.getString("content"));
-			messages.add(message);
+				ListService service=new ListService();
 			
-		}
-		
-		req.setAttribute("messages",messages );
+				
+//		页面设置数据
+		req.setAttribute("messages",service.queryMessage(command, desc));
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
