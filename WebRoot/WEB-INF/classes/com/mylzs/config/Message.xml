@@ -29,8 +29,14 @@
     <result column="content" jdbcType="VARCHAR" property="content"/>
   </resultMap>
 
-  <select id="find"  resultMap="MessageResult">
-   select `id`,`command`,`desc`,`content` from message where 1=1
+  <select id="find" parameterType="javabean.Message" resultMap="MessageResult">
+   select `id`,`command`,`desc`,`content` from message where 1=1 
+   <if test="command!=null and !&quot;&quot;.equals(command.trim())">
+   and command=#{command}
+   </if>
+   <if test="desc!=null and !&quot;&quot;.equals(desc.trim())">
+   and desc like '%' #{desc} '%'
+   </if>
   </select>
 
 

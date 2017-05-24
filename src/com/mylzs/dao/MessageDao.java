@@ -33,8 +33,11 @@ public class MessageDao {
 		List<Message> messages=new ArrayList<Message>();
 		SqlSession sqlSession=null;
 		try {
+			Message message=new Message();
+			message.setCommand(command);
+			message.setDesc(desc);
 			sqlSession= dbAccess.getSqlSession();
-			 messages =sqlSession.selectList("Message.find");
+			 messages =sqlSession.selectList("Message.find",message);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -54,7 +57,7 @@ public class MessageDao {
 //	String sql="select `id`,`command`,`desc`,`content` from message where 1=1";
 //	List<String> palist=new ArrayList<String>();
 //	if(command !=null && !"".equals(command.trim())){
-////		sql.append("and command = ? ");
+////		sql.append(" and command = ? ");
 ////		palist.add(command);
 //		sql+="and command ="+command;
 //	}
@@ -83,8 +86,5 @@ public class MessageDao {
 //	}
 //	return messages;
 //	}
-	public static void main(String[] args) {
-		MessageDao dao=new MessageDao();
-		dao.queryMessage("", "");
-	}
+
 }
