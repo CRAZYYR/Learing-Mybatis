@@ -44,7 +44,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <td>${message.desc}</td>
           <td>${message.content}</td>
           <td>修改</td>
-          <td>删除</td>
+          <td> <a href="${basePath}delete.action?id=${message.id}" >删除</a> </td>
         </tr>
       </C:forEach>
    

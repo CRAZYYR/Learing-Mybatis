@@ -38,6 +38,8 @@
    and desc like '%' #{desc} '%'
    </if>
   </select>
-
+	<delete id="delete_one" parameterType="int" >
+		delete from message where id=#{_parameter}
+	</delete>
 
 </mapper>

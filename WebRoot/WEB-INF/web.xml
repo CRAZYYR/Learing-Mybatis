@@ -16,4 +16,13 @@
   <servlet-name>ListServlet</servlet-name>
   <url-pattern>/List.action</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>deleteOne</servlet-name>
+  	<servlet-class>com.mylzs.servlet.DeleteOne</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>deleteOne</servlet-name>
+  	<url-pattern>/delete.action</url-pattern>
+  </servlet-mapping>
 </web-app>

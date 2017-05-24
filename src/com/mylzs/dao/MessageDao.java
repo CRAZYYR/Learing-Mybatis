@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
+import org.apache.logging.log4j.Logger;
 
 import com.mylzs.db.DBAccess;
 
@@ -46,6 +47,21 @@ public class MessageDao {
 		}
 		return messages;
 		
+	}
+	public void deleteone(int id){
+		DBAccess access=new DBAccess();
+		SqlSession session=null;
+		 try {
+		 session  =  access.getSqlSession();
+			 session.delete("Message.delete_one",id);
+			 session.commit();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			session.close();
+		}
+	
 	}
 	
 //	
@@ -86,5 +102,10 @@ public class MessageDao {
 //	}
 //	return messages;
 //	}
+	public static void main(String[] args) {
+		Logger log = null;
+		log.debug("dadad");
+	
+	}
 
 }

@@ -5,7 +5,9 @@
 	<classpathentry kind="con" path="melibrary.com.genuitec.eclipse.j2eedt.core.MYECLIPSE_JAVAEE_6_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/mybatis-3.2.7.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/mybatis-3.2.7.jar" sourcepath="D:/web/apache-tomcat-7.0.77/dic/mybatis-3"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/mybatis-spring-1.2.3.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/log4j-api-2.0-rc1.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/log4j-core-2.0-rc1.jar"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>
